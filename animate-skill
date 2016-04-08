@@ -37,7 +37,7 @@ CSS3动画场景 & 实现技巧
                 background-position: 0 0;
             }
             100% {
-                background-position: -540px 0; // 12帧   background-position: -()
+                background-position: -540px 0; // 9帧
             }
         }
         #sprite {
@@ -83,4 +83,3 @@ CSS3动画场景 & 实现技巧
             animation: dot 3s infinite step-start;
         }
 
-	
