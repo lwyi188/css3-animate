@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>动画测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            margin: 10px auto;
+            border-bottom: 1px solid greenyellow;
+            text-align: center;
+        }
+
+        div.bg{
+            background: #192A49;
+            height: 30px;
+            margin-top: 20px;
+        }
+
+        /*++++++++++分割线+++++++++++*/
+        @keyframes run3 {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -105px 0; // 15帧
+            }
+        }
+
+        @keyframes float{
+            0%{-webkit-transform:scale(1)}
+            25%{-webkit-transform:scale(.95)}
+            50%{opacity:1;  -webkit-transform:scale(1.1)}
+            100%{opacity:0;  -webkit-transform:scale(.3)}
+        }
+
+        #sprite3 {
+            width: 35px;
+            height: 80px;
+            background: url("img/m1-man.32.png") 0 0 no-repeat;
+            animation: run3 .4s steps(3, end) infinite/*, float .5s 2s ease-in*/;
+            background-size: 105px 80px;
+        }
+
+        /*++++++++++分割线+++++++++++*/
+        @-webkit-keyframes m2ball {
+            0% {
+                opacity: 1;
+                -webkit-transform: translateY(-10px);
+                transform: translateY(-10px)
+            }
+
+            50% {
+                opacity: 1;
+                -webkit-transform: translateY(0px);
+                transform: translateY(0px)
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(-10px);
+                transform: translateY(-10px)
+            }
+        }
+
+        @keyframes m2ball {
+            0% {
+                opacity: 1;
+                -webkit-transform: translateY(-10px);
+                transform: translateY(-10px)
+            }
+
+            50% {
+                opacity: 1;
+                -webkit-transform: translateY(0px);
+                transform: translateY(0px)
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(-10px);
+                transform: translateY(-10px)
+            }
+        }
+
+        .page2 .ele-ballon {
+            width: 69px;
+            height: 97px;
+            right: 50px;
+            bottom: 200px;
+            opacity: 0;
+            background: url(img/m-animate-1-imp.32.png) -231px 0 transparent;
+
+            animation-name: m2ball;
+            -webkit-animation-name: m2ball;
+            animation-duration: 3s;
+            -webkit-animation-duration: 3s;
+            animation-delay: 1.5s;
+            -webkit-animation-delay: 1.5s;
+            animation-timing-function: ease-in;
+            -webkit-animation-timing-function: ease-in;
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+        }
+
+        /*++++++++++分割线+++++++++++*/
+        .arrow {
+            display: inline-block;
+            width: 20px;
+            height: 11px;
+            z-index: 9999;
+            background: url(img/m-animate-2-imp.32.png)  0 -120px;
+            -webkit-tap-highlight-color: rgba(255,255,255,0);
+            animation: fadeInUp 1.5s .2s ease infinite;
+            -webkit-animation: fadeInUp 1.5s .2s infinite;
+        }
+
+        @-webkit-keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0,-20px,0);
+                transform: translate3d(0,-20px,0)
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translate3d(0,0px,0);
+                transform: translate3d(0,0px,0)
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0,-20px,0);
+                transform: translate3d(0,-20px,0)
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translate3d(0,0px,0);
+                transform: translate3d(0,0px,0)
+            }
+        }
+
+        /*++++++++++分割线+++++++++++*/
+        .ele-paste{
+            background: url(img/m-animate-2-imp.32.png?max_age=19830212&d=20141229165315) -303px -76px #192A49;
+            width: 44px;
+            height: 57px;
+            bottom: 232px;
+            right: 39px;
+            opacity: 0;
+            z-index: 20;
+
+            -webkit-animation-name: m4paste;
+            animation-name: m4paste;
+            -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+            -webkit-animation-delay: 1.6s;
+            animation-delay: 1.6s;
+            -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transition: all .5s ease-in-out;
+            transition: all .5s ease-in-out;
+        }
+
+        @-webkit-keyframes m4paste {
+            0% {
+                opacity: 1;
+                -webkit-transform: rotate(20deg);
+                transform: rotate(20deg)
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: rotate(-15deg);
+                transform: rotate(-15deg)
+            }
+        }
+
+        @keyframes m4paste {
+            0% {
+                opacity: 1;
+                -webkit-transform: rotate(0);
+                transform: rotate(0)
+            }
+
+            33% {
+                opacity: 1;
+                -webkit-transform: rotate(20deg);
+                transform: rotate(20deg)
+            }
+
+            66% {
+                opacity: 1;
+                -webkit-transform: rotate(-15deg);
+                transform: rotate(-15deg)
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg)
+            }
+        }
+        /*++++++++++分割线+++++++++++*/
+
+        .ele-star1{
+            background: url(img/m-animate-2-imp.32.png?max_age=19830212&d=20141229165315) -905px 0 #192A49;
+            width: 7px;
+            height: 8px;
+            opacity: 0;
+
+            animation-name: m4star;
+            -webkit-animation-name: m4star;
+            animation-timing-function: ease-in-out;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+
+            animation-duration: 4.5s;
+            -webkit-animation-duration: 4.5s;
+            animation-delay: .9s;
+            -webkit-animation-delay: .9s;
+        }
+
+        @-webkit-keyframes m4star {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: 1;
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1)
+            }
+
+            100% {
+                opacity: 0;
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+        @keyframes m4star {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: 1;
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1)
+            }
+
+            100% {
+                opacity: 0;
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+        /*++++++++++分割线+++++++++++*/
+        .ele-btn{
+            background-image: url(img/mlike.32.png?max_age=19830212&d=20141229165315);
+            width: 61px;
+            height: 28px;
+
+            -webkit-transform: translate3d(-50%,0,0);
+            transform: translate3d(-50%,0,0);
+
+            -webkit-animation-name: bounce;
+            animation-name: bounce;
+            animation-duration: .6s;
+            -webkit-animation-duration: .6s;
+            animation-delay: .5s;
+            -webkit-animation-delay: .5s;
+            -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+            -webkit-transform-origin: center bottom;
+            -ms-transform-origin: center bottom;
+            transform-origin: center bottom;
+        }
+
+        @-webkit-keyframes bounce {
+            0%,20%,53%,80%,100% {
+                -webkit-transition-timing-function: cubic-bezier(0.215,.610,.355,1.000);
+                transition-timing-function: cubic-bezier(0.215,.610,.355,1.000);
+                -webkit-transform: translate3d(-50%,0,0);
+                transform: translate3d(-50%,0,0)
+            }
+
+            40%,43% {
+                -webkit-transition-timing-function: cubic-bezier(0.755,.050,.855,.060);
+                transition-timing-function: cubic-bezier(0.755,.050,.855,.060);
+                -webkit-transform: translate3d(-50%,-18px,0);
+                transform: translate3d(-50%,-18px,0)
+            }
+
+            70% {
+                -webkit-transition-timing-function: cubic-bezier(0.755,.050,.855,.060);
+                transition-timing-function: cubic-bezier(0.755,.050,.855,.060);
+                -webkit-transform: translate3d(-50%,-5px,0);
+                transform: translate3d(-50%,-5px,0)
+            }
+
+            90% {
+                -webkit-transform: translate3d(-50%,-4px,0);
+                transform: translate3d(-50%,-4px,0)
+            }
+        }
+
+        @keyframes bounce {
+            0%,20%,53%,80%,100% {
+                -webkit-transition-timing-function: cubic-bezier(0.215,.610,.355,1.000);
+                transition-timing-function: cubic-bezier(0.215,.610,.355,1.000);
+                -webkit-transform: translate3d(-50%,0,0);
+                transform: translate3d(-50%,0,0)
+            }
+
+            40%,43% {
+                -webkit-transition-timing-function: cubic-bezier(0.755,.050,.855,.060);
+                transition-timing-function: cubic-bezier(0.755,.050,.855,.060);
+                -webkit-transform: translate3d(-50%,-18px,0);
+                transform: translate3d(-50%,-18px,0)
+            }
+
+            70% {
+                -webkit-transition-timing-function: cubic-bezier(0.755,.050,.855,.060);
+                transition-timing-function: cubic-bezier(0.755,.050,.855,.060);
+                -webkit-transform: translate3d(-50%,-5px,0);
+                transform: translate3d(-50%,-5px,0)
+            }
+
+            90% {
+                -webkit-transform: translate3d(-50%,-4px,0);
+                transform: translate3d(-50%,-4px,0)
+            }
+        }
+        /*++++++++++分割线+++++++++++*/
+        .ele-land {
+            animation-name: m2fall3;
+            -webkit-animation-name: m2fall3;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            animation-delay: .5s;
+            -webkit-animation-delay: .5s;
+            animation-timing-function: ease-in;
+            -webkit-animation-timing-function: ease-in;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            -webkit-animation-iteration-count: 1;
+        }
+        .ele-land {
+            background: url(img/m-animate-1-imp.32.png?max_age=19830212&d=20141229165315) 0 0;
+            width: 230px;
+            height: 144px;
+            margin-left: -115px;
+        }
+
+        @-webkit-keyframes m2fall3 {
+            0% {
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0)
+            }
+
+            35% {
+                -webkit-transform: translate3d(0,0px,0);
+                transform: translate3d(0,0px,0)
+            }
+
+            38% {
+                -webkit-transform: translate3d(0,5px,0);
+                transform: translate3d(0,5px,0)
+            }
+
+            50% {
+                -webkit-transform: translate3d(0,0px,0);
+                transform: translate3d(0,0px,0)
+            }
+
+            85% {
+                -webkit-transform: translate3d(0,5px,0);
+                transform: translate3d(0,5px,0)
+            }
+
+            100% {
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0)
+            }
+        }
+
+        @keyframes m2fall3 {
+            0% {
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0)
+            }
+
+            35% {
+                -webkit-transform: translate3d(0,0px,0);
+                transform: translate3d(0,0px,0)
+            }
+
+            38% {
+                -webkit-transform: translate3d(0,5px,0);
+                transform: translate3d(0,5px,0)
+            }
+
+            50% {
+                -webkit-transform: translate3d(0,0px,0);
+                transform: translate3d(0,0px,0)
+            }
+
+            85% {
+                -webkit-transform: translate3d(0,5px,0);
+                transform: translate3d(0,5px,0)
+            }
+
+            100% {
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0)
+            }
+        }
+
+
+        /*++++++++++分割线+++++++++++*/
+
+        @-webkit-keyframes m3wave {
+            0% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes m3wave {
+            0% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 1
+            }
+        }
+        
+        .ele-ball1,.ele-ball2,.ele-ball3,.ele-ball4,.ele-ball5 {
+
+            background: url(img/m-animate-1-imp.32.png?max_age=19830212&d=20141229165315) -285px -98px;
+            width: 41px;
+            height: 41px;
+            opacity: 0;
+
+            animation-name: m3wave;
+            -webkit-animation-name: m3wave;
+            animation-timing-function: ease-in-out;
+            -webkit-animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            -webkit-animation-iteration-count: 1;
+
+            animation-duration: .2s;
+            -webkit-animation-duration: .2s;
+            animation-delay: .8s;
+            -webkit-animation-delay: .8s;
+        }
+
+        .ele-ball2 {
+
+            background: url(img/m-animate-1-imp.32.png?max_age=19830212&d=20141229165315) -381px -32px;
+            background-position-x: -381px;
+            background-position-y: -32px;
+            width: 32px;
+            height: 31px;
+            opacity: 0;
+
+            animation-duration: .2s;
+            -webkit-animation-duration: .2s;
+            animation-delay: 1.5s;
+            -webkit-animation-delay: 1.5s;
+        }
+
+        .ele-ball3 {
+
+            background: url(img/m-animate-1-imp.32.png?max_age=19830212&d=20141229165315) -231px -98px;
+            width: 53px;
+            height: 46px;
+
+            opacity: 0;
+
+            animation-duration: .2s;
+            -webkit-animation-duration: .2s;
+            animation-delay: 1.7s;
+            -webkit-animation-delay: 1.7s;
+        }
+
+        .ele-ball4 {
+            background: url(img/m-animate-1-imp.32.png?max_age=19830212&d=20141229165315) -327px -86px;
+            width: 42px;
+            height: 40px;
+            opacity: 0;
+
+            animation-duration: .2s;
+            -webkit-animation-duration: .2s;
+            animation-delay: 1.9s;
+            -webkit-animation-delay: 1.9s;
+        }
+
+        .ele-ball5 {
+            background: url(img/m-animate-1-imp.32.png?max_age=19830212&d=20141229165315) : -416px 0;
+            width: 31px;
+            height: 26px;
+            opacity: 0;
+
+            animation-duration: .2s;
+            -webkit-animation-duration: .2s;
+            animation-delay: 2.1s;
+            -webkit-animation-delay: 2.1s;
+        }
+
+
+        /*++++++++++分割线+++++++++++*/
+
+
+    </style>
+</head>
+<body>
+    <div id="sprite3"></div>
+    <div class="page2">
+        <div class="ele-ballon"></div>
+    </div>
+
+    <div class="bg">
+        <i class="arrow"></i>
+    </div>
+
+    <div class="ele-paste"></div>
+
+    <div class="ele-star1"></div>
+
+    <div class="ele-btn J_zan" data-sealid="11414"></div>
+
+    <div class="ele-land"></div>
+
+    <div>
+        <div class="ele-ball1"></div>
+        <div class="ele-ball2"></div>
+        <div class="ele-ball3"></div>
+        <div class="ele-ball4"></div>
+        <div class="ele-ball5"></div>
+    </div>
+</body>
+</html>

@@ -5,6 +5,15 @@
     <title>动画测试</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            margin: 10px auto;
+            border-bottom: 1px solid greenyellow;
+            text-align: center;
+        }
         @keyframes run {
             0% {
                 background-position: 0 0;
@@ -20,6 +29,8 @@
             animation: run 1s steps(9, end) infinite;
             background-size: 720px 67px;
         }
+
+        /*++++++++++分割线+++++++++++*/
 
         @keyframes run1 {
             0% {
@@ -45,6 +56,7 @@
                 background-position: -4096px 0; // 15帧
             }
         }
+
         #sprite2 {
             width: 292px;
             height: 297px;
@@ -52,6 +64,8 @@
             animation: run2 .5s steps(14, end) infinite;
             background-size: 4096px 297px;
         }
+
+        /*++++++++++分割线+++++++++++*/
 
         .ani_dot {
             font-family: simsun;
@@ -81,16 +95,12 @@
         .ani_dot {
             animation: dot 3s infinite step-start;
         }
-
-
     </style>
 </head>
 <body>
+   <div>提交中<span class="ani_dot">...</span></div>
    <div id="sprite"></div>
    <div id="sprite1"></div>
    <div id="sprite2"></div>
-   <div>
-       提交中<span class="ani_dot">...</span>
-   </div>
 </body>
 </html>
