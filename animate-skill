@@ -1,0 +1,86 @@
+
+CSS3动画场景 & 实现技巧
+
+实现动画的几种方式：
+1、GIF
+2、CSS3新属性step()逐帧动画
+3. CSS3
+4. SVG
+5. Canvas
+6. Flash->Canvas
+7. video
+8. JavaScript
+
+1.使用animation-play-state控制每屏动画播放
+
+2.逐帧动画demo
+	$spriteWidth: 140px; // 精灵宽度
+	@keyframes run {
+	  0% {
+		background-position: 0 0;
+	  }
+	  100% {
+		background-position: -($spriteWidth * 12) 0; // 12帧
+	  }
+	}
+	#sprite {
+	  width: $spriteWidth;
+	  height: 144px;
+	  background: url("../images/sprite.png") 0 0 no-repeat;
+	  animation: run 0.6s steps(12) infinite;
+	  background-size: ($spriteWidth * 12)px 67px;
+	}
+
+  <style>
+        @keyframes run {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -540px 0; // 12帧   background-position: -()
+            }
+        }
+        #sprite {
+            width: 60px;
+            height: 67px;
+            background: url("img/sprite.png") 0 0 no-repeat;
+            animation: run 1s steps(9, end) infinite;
+            background-size: 540px 67px;
+        }
+    </style>
+
+	注： sprit.png 是9帧动画，
+
+3. “点点点” 加载中动画效果
+
+   提交订单中<span class="ani_dot">...</span>
+    .ani_dot {
+            font-family: simsun;
+        }
+        :root .ani_dot { /* 这里使用Hack是因为IE6~IE8浏览器下， vertical-align解析不规范，值为bottom或其他会改变按钮的实际高度*/
+            display: inline-block;
+            width: 1.5em;
+            vertical-align: bottom;
+            overflow: hidden;
+        }
+        @-webkit-keyframes dot {
+            0% { width: 0; margin-right: 1.5em; }
+            33% { width: .5em; margin-right: 1em; }
+            66% { width: 1em; margin-right: .5em; }
+            100% { width: 1.5em; margin-right: 0;}
+        }
+        .ani_dot {
+            -webkit-animation: dot 3s infinite step-start;
+        }
+
+        @keyframes dot {
+            0% { width: 0; margin-right: 1.5em; }
+            33% { width: .5em; margin-right: 1em; }
+            66% { width: 1em; margin-right: .5em; }
+            100% { width: 1.5em; margin-right: 0;}
+        }
+        .ani_dot {
+            animation: dot 3s infinite step-start;
+        }
+
+	
